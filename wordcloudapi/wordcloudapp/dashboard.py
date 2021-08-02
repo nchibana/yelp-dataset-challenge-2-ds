@@ -1,6 +1,5 @@
 import ast
 from flask import jsonify
-from .models import DB, reviews, Viz2, Business
 
 
 def create_dict(list1, list2, key1, key2):
@@ -45,10 +44,10 @@ def clean_data(result):
 def jsondata(bus_id):
     """Query database, clean data and output final JSON response
     """
-    q1 = Viz2.query.filter_by(business_id=bus_id).all()
-    q2 = Business.query.filter_by(business_id=bus_id).all()
-    q1s = [{**i.serialize, **j.serialize} for i,j in zip(q1,q2)]
-    cleaned = clean_data(q1s)
-    data = jsonify(data=cleaned)
+    # q1 = Viz2.query.filter_by(business_id=bus_id).all()
+    # q2 = Business.query.filter_by(business_id=bus_id).all()
+    # q1s = [{**i.serialize, **j.serialize} for i,j in zip(q1,q2)]
+    # cleaned = clean_data(q1s)
+    # data = jsonify(data=cleaned)
 
-    return data
+    return bus_id
