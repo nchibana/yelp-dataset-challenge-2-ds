@@ -15,9 +15,8 @@ def wc_count(docs):
 
 
 def timeseries(bus_id):
-
-    url = 'https://raw.githubusercontent.com/nchibana/yelp-dataset-challenge-2-ds/master/wordcloudapi/reviews.csv'
-    df = pd.read_csv(url,sep=",")
+    
+    df = pd.read_csv('reviews.csv')
     df['tokens'] = df['tokens'].apply(lambda x: [i.strip('{').strip('}') for i in x.split(',')])
     print(df['tokens'].iloc[0])
     filtered = df.sort_values('date')
