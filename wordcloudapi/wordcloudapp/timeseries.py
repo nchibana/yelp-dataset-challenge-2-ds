@@ -17,6 +17,7 @@ def wc_count(docs):
 def timeseries(bus_id):
     
     df = pd.read_csv('reviews.csv')
+    df = df[df['business_id'] == bus_id]
     df['tokens'] = df['tokens'].apply(lambda x: [i.strip('{').strip('}') for i in x.split(',')])
     print(df['tokens'].iloc[0])
     filtered = df.sort_values('date')
