@@ -113,7 +113,6 @@ venv.bak/
 *dask-worker-space
 *.parquet
 *.json
-*.csv
 
 # Model and Information Saves
 *.pkl
