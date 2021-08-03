@@ -1,4 +1,5 @@
 import ast
+import pandas as pd
 from flask import jsonify
 
 
@@ -44,10 +45,9 @@ def clean_data(result):
 def jsondata(bus_id):
     """Query database, clean data and output final JSON response
     """
-    # q1 = Viz2.query.filter_by(business_id=bus_id).all()
-    # q2 = Business.query.filter_by(business_id=bus_id).all()
-    # q1s = [{**i.serialize, **j.serialize} for i,j in zip(q1,q2)]
-    # cleaned = clean_data(q1s)
-    # data = jsonify(data=cleaned)
+    df = pd.read_csv('bussmall.csv')
+    df = df[df['business_id'] == bus_id]
+    cleaned = clean_data(df)
+    data = jsonify(data=cleaned)
 
-    return bus_id
+    return data
