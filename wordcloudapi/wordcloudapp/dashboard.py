@@ -45,7 +45,9 @@ def clean_data(result):
 def jsondata(bus_id):
     """Query database, clean data and output final JSON response
     """
-    df = pd.read_csv('bussmall.csv')
+    df1 = pd.read_csv('bussmall1.csv')
+    df2 = pd.read_csv('bussmall2.csv')
+    df = pd.concat([df1, df2])
     df = df[df['business_id'] == bus_id]
     cleaned = clean_data(df)
     data = jsonify(data=cleaned)
