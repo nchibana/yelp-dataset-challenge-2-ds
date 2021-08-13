@@ -48,6 +48,5 @@ def jsondata(bus_id):
     df = pd.read_csv('bussmall1.csv')
     df = df[df['business_id'] == bus_id]
     cleaned = clean_data(df)
-    data = cleaned.to_json(orient="records")
 
-    return data
+    return cleaned
