@@ -49,6 +49,6 @@ def jsondata(bus_id):
     df = df[df['business_id'] == bus_id]
     df = df.to_dict('records')
     cleaned = clean_data(df)
-    data = jsonify(data=cleaned)
+    data = jsonify(cleaned)
 
     return data
